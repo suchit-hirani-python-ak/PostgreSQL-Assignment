@@ -1,0 +1,14 @@
+--Query 4
+
+SELECT EmpFname 
+FROM EmployeeInfo
+WHERE EmpFname 
+LIKE 'S%';
+
+--Output
+
+ empfname 
+----------
+ Sanjay
+ Sonia
+(2 rows)
