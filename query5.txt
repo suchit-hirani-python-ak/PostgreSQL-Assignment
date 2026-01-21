@@ -1,0 +1,11 @@
+--Query 5
+
+SELECT * 
+FROM EmployeeInfo 
+INNER JOIN EmployeePosition
+USING(EmplID)
+ORDER BY Salary
+LIMIT 3;
+
+--Output
+
