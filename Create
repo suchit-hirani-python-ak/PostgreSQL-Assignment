@@ -1,0 +1,39 @@
+-- Creating tablesample
+
+CREATE TABLE EmployeeInfo(
+EmpID SERIAL primary key,
+EmpFname varchar(100),
+EmpLname varchar(100),
+Department varchar(20),
+Project varchar(200),
+Address varchar(200),
+DOB date,
+Gender varchar(2)
+);
+
+
+CREATE TABLE EmployeePosition(
+EmplID SERIAL primary key,
+EmpPosition varchar(50),
+DateOfJoining date not null,
+Salary int
+);
+
+--Inserting Data
+
+INSERT INTO EmployeeInfo
+(EmpFname,EmpLname,Department,Project,Address,DOB,Gender)
+VALUES ('Sanjay','Mehra','HR','P1','Hyderabad(HYD)','01/12/1976','M'),
+       ('Anaya','Mishra','Admin','P2','Delhi(DEL)','02/05/1968','F'),
+       ('Rohan','Diwan','Account','P3','Mumbai(BOM)','01/01/1980','M'),
+       ('Sonia','Kulkarni','HR','P1','Hyderabad(HYD)','02/05/1992','F'),
+       ('Ankit','Kapoor','Admin','P2','Delhi(DEL)','03/07/1994','M');
+       
+       
+INSERT INTO EmployeePosition
+(EmpPosition,DateOfJoining,Salary)
+VALUES ('Manager','01/12/2022',500000),
+       ('Executive','02/05/2022',75000),
+       ('Manager','01/01/2022',90000),
+       ('Lead','02/05/2022',85000),
+       ('Executive','01/05/2022',300000);
