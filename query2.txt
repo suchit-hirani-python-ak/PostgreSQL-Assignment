@@ -1,0 +1,15 @@
+--Query 2
+
+SELECT LEFT(EmpLname,4) AS "first 4 char"
+FROM EmployeeInfo;
+
+--Output
+
+ first 4 char 
+--------------
+ Mehr
+ Mish
+ Diwa
+ Kulk
+ Kapo
+(5 rows)
