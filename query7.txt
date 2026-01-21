@@ -1,0 +1,15 @@
+--Query 7
+
+SELECT Department , COUNT(Department)
+FROM EmployeeInfo
+GROUP BY Department
+ORDER BY COUNT(*);
+
+--Output
+
+ department | count 
+------------+-------
+ Account    |     1
+ Admin      |     2
+ HR         |     2
+(3 rows)
