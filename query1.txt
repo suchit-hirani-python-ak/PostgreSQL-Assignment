@@ -1,0 +1,12 @@
+--Query 1
+
+SELECT COUNT(*)
+FROM EmployeeInfo
+WHERE Department='Admin';
+
+--output
+
+ count 
+-------
+     2
+(1 row)
