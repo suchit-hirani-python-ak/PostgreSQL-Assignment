@@ -1,0 +1,16 @@
+       
+--Query 6
+
+SELECT * 
+FROM EmployeeInfo
+WHERE EmpFname 
+NOT IN ('Sanjay','Sonia');
+
+--Output
+
+ emplid | empfname | emplname | department | project |   address   |    dob     | gender 
+--------+----------+----------+------------+---------+-------------+------------+--------
+      2 | Anaya    | Mishra   | Admin      | P2      | Delhi(DEL)  | 1968-02-05 | F
+      3 | Rohan    | Diwan    | Account    | P3      | Mumbai(BOM) | 1980-01-01 | M
+      5 | Ankit    | Kapoor   | Admin      | P2      | Delhi(DEL)  | 1994-03-07 | M
+(3 rows)
