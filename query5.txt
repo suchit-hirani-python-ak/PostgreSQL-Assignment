@@ -9,3 +9,9 @@ LIMIT 3;
 
 --Output
 
+ emplid | empfname | emplname | department | project |    address     |    dob     | gender | empposition | dateofjoining | salary 
+--------+----------+----------+------------+---------+----------------+------------+--------+-------------+---------------+--------
+      2 | Anaya    | Mishra   | Admin      | P2      | Delhi(DEL)     | 1968-02-05 | F      | Executive   | 2022-02-05    |  75000
+      4 | Sonia    | Kulkarni | HR         | P1      | Hyderabad(HYD) | 1992-02-05 | F      | Lead        | 2022-02-05    |  85000
+      3 | Rohan    | Diwan    | Account    | P3      | Mumbai(BOM)    | 1980-01-01 | M      | Manager     | 2022-01-01    |  90000
+(3 rows)
