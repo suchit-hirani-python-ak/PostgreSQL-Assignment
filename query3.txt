@@ -1,0 +1,15 @@
+--Query 3
+
+SELECT EmpFname || ' ' || EmpLname AS "Full Name"
+FROM EmployeeInfo ei INNER JOIN EmployeePosition ep 
+USING(EmplID)
+WHERE Salary BETWEEN 50000 AND 100000;
+
+--Output
+
+   Full Name    
+----------------
+ Anaya Mishra
+ Rohan Diwan
+ Sonia Kulkarni
+(3 rows)
