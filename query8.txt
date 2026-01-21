@@ -1,0 +1,84 @@
+-- More data used to get difference in indexing time and Query written at end 
+
+
+INSERT INTO EmployeeInfo
+(EmpFname,EmpLname,Department,Project,Address,DOB,Gender)
+VALUES ('Sanjay','Mehra','HR','P1','Hyderabad(HYD)','01/12/1976','M'),
+       ('Anaya','Mishra','Admin','P2','Delhi(DEL)','02/05/1968','F'),
+       ('Rohan','Diwan','Account','P3','Mumbai(BOM)','01/01/1980','M'),
+       ('Sonia','Kulkarni','HR','P1','Hyderabad(HYD)','02/05/1992','F'),
+       ('Ankit','Kapoor','Admin','P2','Delhi(DEL)','03/07/1994','M'),
+       ('Sanjay','Mehra','HR','P1','Hyderabad(HYD)','01/12/1976','M'),
+       ('Anaya','Mishra','Admin','P2','Delhi(DEL)','02/05/1968','F'),
+       ('Rohan','Diwan','Account','P3','Mumbai(BOM)','01/01/1980','M'),
+       ('Sonia','Kulkarni','HR','P1','Hyderabad(HYD)','02/05/1992','F'),
+       ('Ankit','Kapoor','Admin','P2','Delhi(DEL)','03/07/1994','M'),
+       ('Sanjay','Mehra','HR','P1','Hyderabad(HYD)','01/12/1976','M'),
+       ('Anaya','Mishra','Admin','P2','Delhi(DEL)','02/05/1968','F'),
+       ('Rohan','Diwan','Account','P3','Mumbai(BOM)','01/01/1980','M'),
+       ('Sonia','Kulkarni','HR','P1','Hyderabad(HYD)','02/05/1992','F'),
+       ('Ankit','Kapoor','Admin','P2','Delhi(DEL)','03/07/1994','M'),
+       ('Sanjay','Mehra','HR','P1','Hyderabad(HYD)','01/12/1976','M'),
+       ('Anaya','Mishra','Admin','P2','Delhi(DEL)','02/05/1968','F'),
+       ('Rohan','Diwan','Account','P3','Mumbai(BOM)','01/01/1980','M'),
+       ('Sonia','Kulkarni','HR','P1','Hyderabad(HYD)','02/05/1992','F'),
+       ('Ankit','Kapoor','Admin','P2','Delhi(DEL)','03/07/1994','M'),
+       ('Sanjay','Mehra','HR','P1','Hyderabad(HYD)','01/12/1976','M'),
+       ('Anaya','Mishra','Admin','P2','Delhi(DEL)','02/05/1968','F'),
+       ('Rohan','Diwan','Account','P3','Mumbai(BOM)','01/01/1980','M'),
+       ('Sonia','Kulkarni','HR','P1','Hyderabad(HYD)','02/05/1992','F'),
+       ('Ankit','Kapoor','Admin','P2','Delhi(DEL)','03/07/1994','M'),
+       ('Sanjay','Mehra','HR','P1','Hyderabad(HYD)','01/12/1976','M'),
+       ('Anaya','Mishra','Admin','P2','Delhi(DEL)','02/05/1968','F'),
+       ('Rohan','Diwan','Account','P3','Mumbai(BOM)','01/01/1980','M'),
+       ('Sonia','Kulkarni','HR','P1','Hyderabad(HYD)','02/05/1992','F'),
+       ('Ankit','Kapoor','Admin','P2','Delhi(DEL)','03/07/1994','M'),
+       ('Sanjay','Mehra','HR','P1','Hyderabad(HYD)','01/12/1976','M'),
+       ('Anaya','Mishra','Admin','P2','Delhi(DEL)','02/05/1968','F'),
+       ('Rohan','Diwan','Account','P3','Mumbai(BOM)','01/01/1980','M'),
+       ('Sonia','Kulkarni','HR','P1','Hyderabad(HYD)','02/05/1992','F'),
+       ('Ankit','Kapoor','Admin','P2','Delhi(DEL)','03/07/1994','M'),
+       ('Sanjay','Mehra','HR','P1','Hyderabad(HYD)','01/12/1976','M'),
+       ('Anaya','Mishra','Admin','P2','Delhi(DEL)','02/05/1968','F'),
+       ('Rohan','Diwan','Account','P3','Mumbai(BOM)','01/01/1980','M'),
+       ('Sonia','Kulkarni','HR','P1','Hyderabad(HYD)','02/05/1992','F'),
+       ('Ankit','Kapoor','Admin','P2','Delhi(DEL)','03/07/1994','M')
+       ;
+
+
+--Query 8
+
+--BEFORE INDEX
+EXPLAIN ANALYZE
+SELECT Address 
+FROM EmployeeInfo;
+
+--AFTER INDEX
+CREATE INDEX  ON EmployeeInfo(Address);
+
+EXPLAIN ANALYZE
+SELECT Address 
+FROM EmployeeInfo;
+
+
+-- Output seen in execution time
+                                                 QUERY PLAN                                                  
+--------------------------------------------------------------------------------------------------------------
+ Seq Scan on employeeinfo  (cost=0.00..10.50 rows=50 width=418) (actual time=0.005..0.009 rows=40.00 loops=1)
+   Buffers: shared hit=1
+ Planning:
+   Buffers: shared hit=2
+ Planning Time: 0.026 ms
+ Execution Time: 0.016 ms
+(6 rows)
+
+CREATE INDEX
+                                                 QUERY PLAN                                                  
+-------------------------------------------------------------------------------------------------------------
+ Seq Scan on employeeinfo  (cost=0.00..1.40 rows=40 width=418) (actual time=0.003..0.006 rows=40.00 loops=1)
+   Buffers: shared hit=1
+ Planning:
+   Buffers: shared hit=16 read=1
+ Planning Time: 0.091 ms
+ Execution Time: 0.012 ms
+(6 rows)
